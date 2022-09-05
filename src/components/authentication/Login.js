@@ -26,7 +26,6 @@ function Login(props){
         event.preventDefault();
         
         Auth.signIn(username.current.value,password.current.value).then(res=>{
-            console.log(res);
             setIsLoggedIn(true);
             history.replace('/dashboard');
         }).catch(er=>{
