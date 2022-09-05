@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-warnerbrosdash-dev-211514-authRole",
+      "UnauthRoleArn": "arn:aws:iam::965073922326:role/amplify-warnerbrosdash-dev-211514-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::965073922326:role/amplify-warnerbrosdash-dev-211514-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-warnerbrosdash-dev-211514-deployment",
+      "UnauthRoleName": "amplify-warnerbrosdash-dev-211514-unauthRole",
+      "StackName": "amplify-warnerbrosdash-dev-211514",
+      "StackId": "arn:aws:cloudformation:us-east-1:965073922326:stack/amplify-warnerbrosdash-dev-211514/334f6800-2cb8-11ed-89ba-0e9003145d31",
+      "AmplifyAppId": "dj43xjj73nnn9"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dj43xjj73nnn9",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "warnerbrosdash39eb2f6f": {}
+      }
+    }
+  }
+}
