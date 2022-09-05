@@ -10,7 +10,7 @@ import PageNotFound from './pages/PageNotFound';
 import FileContext from './context/fileContext';
 
 import {Amplify} from 'aws-amplify';
-import awsconfig from '../src/aws-exports/aws-exports';
+import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 
