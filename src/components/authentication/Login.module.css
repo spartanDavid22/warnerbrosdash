@@ -1,0 +1,67 @@
+/*Container*/
+.form-container{
+    background-color: rgb(19, 52, 151);
+    width: 40rem;
+    border-radius: 10px;
+    margin-top: 6rem;
+}
+
+@media (max-width: 576px) {
+    .form-container{
+        width: auto;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+/*-------------------------*/
+.form-container input{
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+    border: 0;
+    width: 93%;
+    outline: none;
+    padding: 10px;
+}
+
+.form-container label{
+    color: gold;
+    font-size: 30px;
+    text-align: start;
+    margin: 0 0.5rem 7px;
+}
+
+.form-container h1{
+    color: gold;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/*Login Button*/
+.form-container button{
+    background-color: gold;
+    color: rgb(19, 52, 151);
+    border: gold;
+}
+.test{
+    text-decoration: none;
+    color: rgb(19, 52, 151);
+}
+
+ .form-container button:hover{
+    opacity: 0.7;
+    background-color: gold;
+ }
+
+.form-container button:focus{
+    background-color: gold;
+    color: rgb(19, 52, 151);
+    border: gold;
+    outline: none;
+}
+
+/*Headers*/
+h4{
+    color: red;
+}

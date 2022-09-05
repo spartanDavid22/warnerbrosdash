@@ -1,0 +1,101 @@
+.stream{
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+video{
+    width: 100%;
+}
+
+.container{
+    border-radius: 10px;
+    background-color: rgb(19, 52, 151);
+}
+
+.metadataForm{
+    margin-top: -6px;
+    padding: 1rem;
+    color: gold;
+    font-size: 20px;
+}
+
+.updateBtn{
+    background-color: gold;
+    color:rgb(19, 52, 151);
+    border: none; 
+}
+
+.date{
+    width: 70%;
+}
+
+.text{
+    width: 100%;
+}
+
+.genderPick{
+    width: 80%;
+}
+
+@media (min-width: 576px) {
+.date{
+    width: 69%;
+}
+
+.text{
+    width: 100%;
+}
+
+.genderPick{
+    width: 74%;
+}
+}
+
+@media (min-width: 768px) {
+.date{
+    width: 47%;
+}
+
+.text{
+    width: 60%;
+}
+
+.genderPick{
+    width: 50%;
+}
+}
+
+@media (min-width: 992px) {
+.date{
+    width: 33%;
+}
+
+.text{
+    width: 60%;
+}
+
+.genderPick{
+    width: 35%;
+}
+}
+
+.streamDescr{
+    color: gold;
+    font-size: 20px;
+}
+
+.descrText{
+    margin-top: 1.3rem;
+}
+
+.newText{
+    color: gold;
+}
+
+.middleLine{
+    border-right: dashed rgba(255, 217, 0, 0.427) 2px;
+}
+
+span{
+    font-weight: bold;
+}

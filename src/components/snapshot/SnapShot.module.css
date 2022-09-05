@@ -1,0 +1,24 @@
+/*Container for the snapshot*/
+.card{
+    border-radius: 10px;
+    border: none;
+    box-shadow: -5px 5px 10px gray; 
+    background-color: rgb(19, 52, 151);
+    color: gold;
+}
+
+.card img{
+    height: 200px;
+    width: auto;
+}
+
+.card button{
+    background-color: gold;
+    color: rgb(19, 52, 151);
+    border: none;
+}
+
+.watchBtn{
+    text-decoration: none;
+    color: rgb(19, 52, 151);
+}
