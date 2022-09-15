@@ -4,13 +4,13 @@
 }
 
 .pages{
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    
 }
 
 .container{
     position: relative;
-    min-height: 100vh;
+    min-height: 94vh;
 }
 
 .pageContainer{
@@ -18,5 +18,7 @@
 }
 
 a,span:focus{
-
+    outline: none;
+    border: none;
+    box-shadow: none;
 }

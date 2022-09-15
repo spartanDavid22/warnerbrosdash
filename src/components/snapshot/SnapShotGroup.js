@@ -58,8 +58,8 @@ function SnapShotGroup(props){
                     {props.files.slice(start,end).map((file) => {return createSnap(file)})}
                 </Row>
             </Container>
-            <Container fluid className={style.pageContainer}> 
-                <Pagination size='lg'className={style.pages}>
+            <Container fluid className={`${style.pageContainer}`}> 
+                <Pagination size='lg'>
                     <Pagination.Prev onClick={prevPage}/>
                     {pages}
                     <Pagination.Next onClick={nextPage}/>

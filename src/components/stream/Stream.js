@@ -50,6 +50,7 @@ ${date.current.value}`)
     }
 
     return(
+        <div className={style.test}>
         <Container className={`mt-5 ${style.container}`}>    
             
             <video key={stream} controls className={style.stream}>
@@ -103,7 +104,8 @@ ${date.current.value}`)
             </Row>
 
         </Container>
-    )
+        </div> 
+   )
 }
 
 export default Stream;

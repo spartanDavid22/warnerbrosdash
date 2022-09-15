@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Login from './components/authentication/Login';
 import Header from './components/header/Header';
 import AuthContext from './context/authContext';
@@ -8,6 +8,7 @@ import WatchStream from './pages/WatchStream';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound';
 import FileContext from './context/fileContext';
+import Footer from './components/footer/Footer';
 
 import {Amplify} from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -46,17 +47,20 @@ function App() {
       onLogout: logoutHandler
     }}>
 
-      <Header/>
+      <Header />
     <FileContext.Provider value={{files:[]}}>
-      <Switch>
-        <Route path='/' exact>
-          <Redirect to='/login'/>
-        </Route>
-        <Route path='/login'><Login/></Route>
-        {isLoggedIn && <Route path='/dashboard' exact><HomeDash files={files}/></Route>}
-        {isLoggedIn && <Route path='/dashboard/:videoId'><WatchStream/></Route>}
-        <Route path='*'><PageNotFound/></Route>
-      </Switch>
+      <div className={styles.container}>
+        <Switch>
+          <Route path='/' exact>
+            <Redirect to='/login'/>
+          </Route>
+          <Route path='/login'><Login/></Route>
+          {isLoggedIn && <Route path='/dashboard' exact><HomeDash files={files}/></Route>}
+          {isLoggedIn && <Route path='/dashboard/:videoId'><WatchStream/></Route>}
+          <Route path='*'><PageNotFound/></Route>
+        </Switch>
+        <Footer/>
+      </div>
     </FileContext.Provider>
 
       

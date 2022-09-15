@@ -7,6 +7,11 @@ video{
     width: 100%;
 }
 
+.test{
+    position: relative;
+    min-height: 120vh;
+}
+
 .container{
     border-radius: 10px;
     background-color: rgb(19, 52, 151);
@@ -49,6 +54,11 @@ video{
 .genderPick{
     width: 74%;
 }
+
+.test{
+    position: relative;
+    min-height: 100vh;
+}
 }
 
 @media (min-width: 768px) {
@@ -63,6 +73,11 @@ video{
 .genderPick{
     width: 50%;
 }
+
+.test{
+    position: relative;
+    min-height: 115vh;
+}
 }
 
 @media (min-width: 992px) {
@@ -76,6 +91,11 @@ video{
 
 .genderPick{
     width: 35%;
+}
+
+.test{
+    position: relative;
+    min-height: 130vh;
 }
 }
 
