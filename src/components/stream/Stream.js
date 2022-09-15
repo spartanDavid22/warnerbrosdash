@@ -62,7 +62,7 @@ ${date.current.value}`)
                     <h3 className={`text-center ${style.newText}`}>New Metadata</h3>
                     <Form className={style.metadataForm} onSubmit={handleSubmit}>
                         <Form.Group controlId='sportType' as={Row}>
-                            <Form.Label column='lg'><span>Sport Category:</span></Form.Label>
+                            <Form.Label column='lg'><span>Category:</span></Form.Label>
                             <Col xxl={9}>
                                 <Form.Control type='text' placeholder='Enter Sport' className={`${style.text} `}/>
                             </Col>
@@ -84,6 +84,12 @@ ${date.current.value}`)
                                 </Form.Select>
                             </Col>
                         </Form.Group>
+                        <Form.Group controlId='sportType' as={Row}>
+                            <Form.Label column='lg'><span>Country:</span></Form.Label>
+                            <Col xxl={9}>
+                                <Form.Control type='text' placeholder='Enter Country' className={`${style.text} mt-1`}/>
+                            </Col>
+                        </Form.Group>
                         <Button className={`mt-4 ${style.updateBtn}`} >Update Metadata</Button>
                     </Form>
                 </Col>
@@ -93,6 +99,7 @@ ${date.current.value}`)
                     <div className={style.descrText}><span>Sport Category:</span> {file.filename.charAt(0).toUpperCase() + file.filename.slice(1)}</div>
                     <div className={style.descrText}><span>Date of Event:</span> {file.date_of_event}</div>
                     <div className={style.descrText}><span>Gender:</span> {file.gender}</div>
+                    <div className={style.descrText}><span>Country:</span> {file.gender}</div>
                 </Col>
             </Row>
 
