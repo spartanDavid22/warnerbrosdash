@@ -16,3 +16,7 @@
 .pageContainer{
     display: block;
 }
+
+a,span:focus{
+
+}

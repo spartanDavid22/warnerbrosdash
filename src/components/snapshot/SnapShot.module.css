@@ -22,3 +22,13 @@
     text-decoration: none;
     color: rgb(19, 52, 151);
 }
+
+.watchBtn:hover{
+    color: gold;
+}
+
+.watchBtn:focus{
+    color: rgb(19, 52, 151);
+    border: gold;
+    outline: none;
+}

@@ -1,6 +1,5 @@
 import React,{useEffect, useRef, useState, useContext} from 'react';
 import style from './Stream.module.css';
-import fileContext from '../../context/fileContext';
 
 //Bootstrap Styles
 import Container from 'react-bootstrap/esm/Container';
@@ -9,20 +8,24 @@ import Col from 'react-bootstrap/esm/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const getVideoAPI = "https://jwc62fg5a8.execute-api.us-east-1.amazonaws.com/default/getVideo";
-
 function Stream(props){
 
-    const context = useContext(fileContext);
-    const [video, setVideo] = useState();
+    const getVideoAPI = `https://vnv7sqoyxc.execute-api.us-east-1.amazonaws.com/Spor/sports/`;
+
+    const [video, setVideo] = useState("temporary");
+    const [stream, setStream] = useState(0);
 
     useEffect(()=>{
 
-        fetch(`${getVideoAPI}?payload=${props.filename}`,{
-            method: 'GET'
+        fetch(`${getVideoAPI}${props.filename}`,{
+            method: 'GET',
+            headers:{
+                accept: "application/json"
+            }
         }).then((res)=>{return res.json()})
         .then(data=>{
-            setVideo(data.signedURL);
+            setVideo(data.Item);
+            setStream(data.Item.URL)
         })
         .catch(error =>{
             console.log(error);
@@ -30,10 +33,6 @@ function Stream(props){
 
     },[]);
     
-    const file = context.files.find(item => {
-       return item.filename.toLowerCase() === props.filename;
-    })
-
     const sportsType = useRef("");
     const gender = useRef("");
     const date = useRef("");
@@ -53,8 +52,8 @@ ${date.current.value}`)
     return(
         <Container className={`mt-5 ${style.container}`}>    
             
-            <video key={video} controls className={style.stream}>
-                <source src={video} type="video/mp4"/>
+            <video key={stream} controls className={style.stream}>
+                <source src={stream} type="video/mp4"/>
             </video>
 
             <Row>
@@ -96,10 +95,10 @@ ${date.current.value}`)
                 
                 <Col className={style.streamDescr}>
                     <h3 className='text-center'>Current Metadata</h3>
-                    <div className={style.descrText}><span>Sport Category:</span> {file.filename.charAt(0).toUpperCase() + file.filename.slice(1)}</div>
-                    <div className={style.descrText}><span>Date of Event:</span> {file.date_of_event}</div>
-                    <div className={style.descrText}><span>Gender:</span> {file.gender}</div>
-                    <div className={style.descrText}><span>Country:</span> {file.gender}</div>
+                    <div className={style.descrText}><span>Sport Category:</span> {video.Category}</div>
+                    <div className={style.descrText}><span>Date of Event:</span> {video.DateOfEvent}</div>
+                    <div className={style.descrText}><span>Gender:</span> {video.Gender}</div>
+                    <div className={style.descrText}><span>Country:</span> {video.Gender}</div>
                 </Col>
             </Row>
 

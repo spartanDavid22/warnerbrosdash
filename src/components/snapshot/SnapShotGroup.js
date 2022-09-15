@@ -1,4 +1,4 @@
-import React, {useState, Fragment } from 'react';
+import React, {useState } from 'react';
 import SnapShot from './SnapShot';
 import style from './SnapShotGroup.module.css';
 
@@ -14,7 +14,7 @@ function SnapShotGroup(props){
     let pages = [];
     let [start,setStart] = useState(0);
     let [end,setEnd] = useState(12);
-    let k = 0;
+
     for(let i = 0; i <= Math.ceil(pages.length/12); i++)
     {   
         pages.push(<Pagination.Item key={i+1} id={i+1} active={i+1 === active} onClick={handlePageSwitch}>{i+1}</Pagination.Item>,)
@@ -28,8 +28,6 @@ function SnapShotGroup(props){
         setActive(k);
     }
 
-    console.log(start,end)
-    
     function createSnap(item){
         return(
             <Col className='mb-3' xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -47,18 +45,17 @@ function SnapShotGroup(props){
     }
 
     function nextPage(){
+
         setStart(start += 12);
         setEnd(end += 12);
         setActive(start/12 + 1);
     }
 
-    console.log(active);
-
     return(
         <div className={style.container}>
             <Container fluid className={`mt-4 ${style.content}`}>          
                 <Row>
-                    {props.files.slice(start,end).map((snap) => {return createSnap(snap)})}
+                    {props.files.slice(start,end).map((file) => {return createSnap(file)})}
                 </Row>
             </Container>
             <Container fluid className={style.pageContainer}> 

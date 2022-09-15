@@ -14,7 +14,7 @@ function SnapShot(props){
                     <Card.Title>{props.vid.filename.charAt(0).toUpperCase() + props.vid.filename.slice(1)}</Card.Title>
                     <Card.Text>{props.vid.date_of_event}</Card.Text>
                     
-                    <Button>
+                    <Button className={style.watchBtn}>
                         <Link className={style.watchBtn} to={`/dashboard/${props.vid.filename}`}>Watch Video</Link>
                     </Button>
 
