@@ -99,7 +99,7 @@ ${date.current.value}`)
                     <div className={style.descrText}><span>Sport Category:</span> {video.Category}</div>
                     <div className={style.descrText}><span>Date of Event:</span> {video.DateOfEvent}</div>
                     <div className={style.descrText}><span>Gender:</span> {video.Gender}</div>
-                    <div className={style.descrText}><span>Country:</span> {video.Gender}</div>
+                    <div className={style.descrText}><span>Country:</span> {video.Country}</div>
                 </Col>
             </Row>
 
