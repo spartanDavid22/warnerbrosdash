@@ -1,4 +1,4 @@
-import React,{useEffect, useRef, useState, useContext} from 'react';
+import React,{useEffect, useRef, useState} from 'react';
 import style from './Stream.module.css';
 
 //Bootstrap Styles
@@ -9,44 +9,60 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 function Stream(props){
-
-    const getVideoAPI = `https://vnv7sqoyxc.execute-api.us-east-1.amazonaws.com/Spor/sports/`;
+    const updateMetaAPI = 'https://n9icxsp9sf.execute-api.us-east-1.amazonaws.com/default/post';
+    const getVideoAPI = `https://a8sret1gs8.execute-api.us-east-1.amazonaws.com/getVideo/getSingleSignedURL?`;
 
     const [video, setVideo] = useState("temporary");
     const [stream, setStream] = useState(0);
 
     useEffect(()=>{
 
-        fetch(`${getVideoAPI}${props.filename}`,{
+        fetch(`${getVideoAPI}id=${props.filename}`,{
             method: 'GET',
             headers:{
                 accept: "application/json"
             }
         }).then((res)=>{return res.json()})
         .then(data=>{
-            setVideo(data.Item);
-            setStream(data.Item.URL)
+            setVideo(data);
+            setStream(data.URL)
         })
         .catch(error =>{
             console.log(error);
         });
 
-    },[]);
+    },[getVideoAPI, props.filename]);
     
     const sportsType = useRef("");
     const gender = useRef("");
     const date = useRef("");
+    const country = useRef("");
 
     function handleSubmit(event){
         event.preventDefault();
+    }
 
-        alert(`${sportsType.current.value}
-${gender.current.value}
-${date.current.value}`)
+    function updateMeta(){
+
+        let body = {
+            id: props.filename,
+            Country: country.current.value,
+            Category: sportsType.current.value,
+            Gender: gender.current.value,
+            DateOfEvent: date.current.value
+        }
+
+        fetch(updateMetaAPI, {
+            method: 'POST',
+            body: JSON.stringify(body) 
+        }).then(res=>{
+            console.log(res);
+        })
 
         sportsType.current.value = '';
         gender.current.value='';
         date.current.value='';
+        country.current.value = '';
     }
 
     return(
@@ -64,19 +80,19 @@ ${date.current.value}`)
                         <Form.Group controlId='sportType' as={Row}>
                             <Form.Label column='lg'><span>Category:</span></Form.Label>
                             <Col xxl={9}>
-                                <Form.Control type='text' placeholder='Enter Sport' className={`${style.text} `}/>
+                                <Form.Control type='text' placeholder='Enter Sport' ref={sportsType} className={`${style.text} `}/>
                             </Col>
                         </Form.Group>
                         <Form.Group controlId='sportType' as={Row}>
                             <Form.Label column='lg'><span>Date of Event:</span></Form.Label>
                             <Col xxl={9}>
-                                <Form.Control as='input' type='date' className={`${style.date} `}/>
+                                <Form.Control as='input' type='date' ref={date} className={`${style.date} `}/>
                             </Col>
                         </Form.Group>
                         <Form.Group controlId='sportType' as={Row}>
                             <Form.Label column><span>Gender:</span></Form.Label>
                             <Col xxl={9}>
-                                <Form.Select aria-label='Select Gender' className={`${style.genderPick} `}>
+                                <Form.Select aria-label='Select Gender' ref={gender} className={`${style.genderPick} `}>
                                     <option>Select Gender</option>
                                     <option value='Male'>Male</option>
                                     <option value='Female'>Female</option>
@@ -87,10 +103,10 @@ ${date.current.value}`)
                         <Form.Group controlId='sportType' as={Row}>
                             <Form.Label column='lg'><span>Country:</span></Form.Label>
                             <Col xxl={9}>
-                                <Form.Control type='text' placeholder='Enter Country' className={`${style.text} mt-1`}/>
+                                <Form.Control type='text' placeholder='Enter Country' ref={country} className={`${style.text} mt-1`}/>
                             </Col>
                         </Form.Group>
-                        <Button className={`mt-4 ${style.updateBtn}`} >Update Metadata</Button>
+                        <Button className={`mt-4 ${style.updateBtn}`} onClick={updateMeta}>Update Metadata</Button>
                     </Form>
                 </Col>
                 
