@@ -14,6 +14,7 @@ function Stream(props){
 
     const [video, setVideo] = useState("temporary");
     const [stream, setStream] = useState(0);
+    const [isUpdated, setIsUpdated] = useState(0);
 
     useEffect(()=>{
 
@@ -31,7 +32,7 @@ function Stream(props){
             console.log(error);
         });
 
-    },[getVideoAPI, props.filename]);
+    },[getVideoAPI, props.filename, isUpdated]);
     
     const sportsType = useRef("");
     const gender = useRef("");
@@ -56,13 +57,18 @@ function Stream(props){
             method: 'POST',
             body: JSON.stringify(body) 
         }).then(res=>{
-            console.log(res);
+
         })
 
         sportsType.current.value = '';
         gender.current.value='';
         date.current.value='';
         country.current.value = '';
+        
+    }
+
+    function handleRefresh(){
+        setIsUpdated(isUpdated + 1)
     }
 
     return(
@@ -116,6 +122,7 @@ function Stream(props){
                     <div className={style.descrText}><span>Date of Event:</span> {video.DateOfEvent}</div>
                     <div className={style.descrText}><span>Gender:</span> {video.Gender}</div>
                     <div className={style.descrText}><span>Country:</span> {video.Country}</div>
+                    <Button className={`mt-3 ${style.updateBtn}`} onClick={handleRefresh}>Refresh Metadata</Button>
                 </Col>
             </Row>
 
