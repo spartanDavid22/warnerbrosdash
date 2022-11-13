@@ -15,10 +15,10 @@ function Stream(props){
     const [video, setVideo] = useState("temporary");
     const [stream, setStream] = useState(0);
     const [isUpdated, setIsUpdated] = useState(0);
-
+    console.log(props.id)
     useEffect(()=>{
 
-        fetch(`${getVideoAPI}id=${props.filename}`,{
+        fetch(`${getVideoAPI}id=${props.id}`,{
             method: 'GET',
             headers:{
                 accept: "application/json"
@@ -32,7 +32,7 @@ function Stream(props){
             console.log(error);
         });
 
-    },[getVideoAPI, props.filename, isUpdated]);
+    },[getVideoAPI, props.id, isUpdated]);
     
     const sportsType = useRef("");
     const gender = useRef("");
@@ -46,7 +46,7 @@ function Stream(props){
     function updateMeta(){
 
         let body = {
-            id: props.filename,
+            id: props.id,
             Country: country.current.value,
             Category: sportsType.current.value,
             Gender: gender.current.value,

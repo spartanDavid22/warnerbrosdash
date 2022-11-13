@@ -15,7 +15,7 @@ import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 
-const getFilesURL = "https://gr7vpjoo9l.execute-api.us-east-1.amazonaws.com/default/getImages";
+const getFilesURL = "https://kgetty3tvb.execute-api.us-east-1.amazonaws.com/default/getSignedURL";
 
 function App() {
   
@@ -39,7 +39,7 @@ function App() {
   function logoutHandler(){
     setIsLoggedIn(false);
   }
-
+  
   return (
     <AuthContext.Provider value={{
       isLoggedIn: isLoggedIn,

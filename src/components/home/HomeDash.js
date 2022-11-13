@@ -22,13 +22,13 @@ function HomeDash(props){
         
         if(event.target.value == 'nDec'){
             temp = files.sort((l,r)=>{
-                if(l.filename < r.filename){
+                if(l.id < r.id){
                     return -1
                 }})
         }
         else if(event.target.value == 'nAsc'){
             temp = files.sort((l,r)=>{
-                if(l.filename > r.filename){
+                if(l.id > r.id){
                     return -1
                 }})
         } 
@@ -48,7 +48,7 @@ function HomeDash(props){
         }
         else{
             temp = files.filter((file)=>{
-                let checkString = file.filename.toLowerCase().includes(searchParam.current.value.toLowerCase())
+                let checkString = file.id.toLowerCase().includes(searchParam.current.value.toLowerCase())
                 return checkString
             })
             

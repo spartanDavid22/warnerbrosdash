@@ -11,11 +11,11 @@ function SnapShot(props){
             <Card className={style.card}>
                 <Card.Img variant='top' src={props.vid.image}/>
                 <Card.Body>
-                    <Card.Title>{props.vid.filename.charAt(0).toUpperCase() + props.vid.filename.slice(1)}</Card.Title>
+                    <Card.Title>{props.vid.id.charAt(0).toUpperCase() + props.vid.id.slice(1)}</Card.Title>
                     <Card.Text>{props.vid.date_of_event}</Card.Text>
                     
                     <Button className={style.watchBtn}>
-                        <Link className={style.watchBtn} to={`/dashboard/${props.vid.filename}`}>Watch Video</Link>
+                        <Link className={style.watchBtn} to={`/dashboard/${props.vid.id}`}>Watch Video</Link>
                     </Button>
 
                 </Card.Body>

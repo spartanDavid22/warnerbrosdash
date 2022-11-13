@@ -5,9 +5,9 @@ import Stream from '../components/stream/Stream';
 function WatchStream(props){
 
     const params = useParams();
-
+    console.log(params.videoId);
     return(
-        <Stream filename={params.videoId}/>
+        <Stream id={params.videoId}/>
     )
 }
 
