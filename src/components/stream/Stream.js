@@ -15,10 +15,19 @@ function Stream(props){
     const [video, setVideo] = useState("temporary");
     const [stream, setStream] = useState(0);
     const [isUpdated, setIsUpdated] = useState(0);
-    console.log(props.id)
+    console.log(props.id.slice(0,-4))
+
     useEffect(()=>{
 
-        fetch(`${getVideoAPI}id=${props.id}`,{
+        let newName = props.id;
+
+        if(props.id.slice(-4)==".mp4")
+        {
+            console.log("Here in useEffect")
+            newName = props.id.slice(0,-4);
+        }
+
+        fetch(`${getVideoAPI}id=${newName}`,{
             method: 'GET',
             headers:{
                 accept: "application/json"

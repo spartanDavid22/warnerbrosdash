@@ -25,12 +25,16 @@ function Login(props){
     function submitHandler(event){
         event.preventDefault();
         
-        Auth.signIn(username.current.value,password.current.value).then(res=>{
+        Auth.signIn(username.current.value,password.current.value).then(user=>{
             setIsLoggedIn(true);
             history.replace('/dashboard');
+            Auth.completeNewPassword(user,"12345678Dav").then(data=>{
+                console.log(data)
+            })
         }).catch(er=>{
             setShowError(true);
         })
+
 
         username.current.value = "";
         password.current.value = "";

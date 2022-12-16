@@ -21,7 +21,8 @@ function App() {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [files, setFiles] = useState([]);
-   
+  const [refresh, setRefresh] = useState(0);
+  
   useEffect(()=>{
     fetch(getFilesURL,{
         method: "GET"
@@ -33,6 +34,7 @@ function App() {
             temp.push(item);
         })
         setFiles(temp);
+        console.log(data)
     })
   },[])
 
@@ -55,7 +57,7 @@ function App() {
             <Redirect to='/login'/>
           </Route>
           <Route path='/login'><Login/></Route>
-          {isLoggedIn && <Route path='/dashboard' exact><HomeDash files={files}/></Route>}
+          {isLoggedIn && <Route path='/dashboard' exact><HomeDash refresh={refresh} setRefresh={setRefresh} files={files}/></Route>}
           {isLoggedIn && <Route path='/dashboard/:videoId'><WatchStream/></Route>}
           <Route path='*'><PageNotFound/></Route>
         </Switch>
